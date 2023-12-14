@@ -1,0 +1,13 @@
+vector<int> reverseArray(int n, vector<int> &nums)//giving the vector value addresses
+{
+  int start=0 , end = n-1;
+  while(start<end){
+      int temp = nums[start];//using a temp variable to swap the elements
+      nums[start]=nums[end];
+      nums[end]=temp;
+      start++,end--;
+  }
+
+  return nums;
+  
+}

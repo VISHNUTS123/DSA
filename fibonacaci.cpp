@@ -61,6 +61,30 @@ int fibonacci(int N){
 
 }// will only return the final answer
 
+vector<int> generateFibonacciNumbers(int n) {
+   vector<int> fibonacci;
+   int next = 0;
+   if(n<=0)
+   return fibonacci;
+
+   fibonacci.push_back(0);
+
+   if(n==1)
+   return fibonacci;
+
+   fibonacci.push_back(1);
+
+   if(n>1){
+       for(int i =2;i<=n;i++){
+           next = fibonacci[i-1]+fibonacci[i-2];
+           fibonacci.push_back(next);
+           
+       }
+   }
+
+   return fibonacci;
+}// we are returning a vector 
+
 int main()
 {
   naive(10);
@@ -68,4 +92,9 @@ int main()
   spaceoptimised(10);
   cout<<"\n";
   cout<<fibonacci(10)<<endl;
+  cout<<"\n";
+  vector <int> v = generateFibonacciNumbers(10);
+  for(int i=0;i<v.size();i++){
+    cout<<v[i]<<"\t";
+  }
 }

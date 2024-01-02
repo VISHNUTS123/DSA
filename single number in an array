@@ -1,0 +1,54 @@
+// optimal approach using xor 
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int x = 0;
+         int n = nums.size();
+        for(int i = 0 ; i<n ;i++){
+            x = x^nums[i];
+        }
+        return x;
+    }
+};
+// using hashing using map
+ // And hash the given array:
+    map<int, int> mpp;
+    for (int i = 0; i < n; i++) {
+        mpp[arr[i]]++;
+    }
+
+    //Find the single element and return the answer:
+    for (auto it : mpp) {
+        if (it.second == 1)
+            return it.first;
+    }
+
+    //This line will never execute
+    //if the array contains a single element.
+    return -1;
+
+    // using array hashing 
+      int n = arr.size();
+
+    // Find the maximum element:
+    int maxi = arr[0];
+    for (int i = 0; i < n; i++) {
+        maxi = max(maxi, arr[i]);
+    }
+
+    // Declare hash array of size maxi+1
+    // And hash the given array:
+    vector<int> hash(maxi + 1, 0);
+    for (int i = 0; i < n; i++) {
+        hash[arr[i]]++;
+    }
+
+    //Find the single element and return the answer:
+    for (int i = 0; i < n; i++) {
+        if (hash[arr[i]] == 1)
+            return arr[i];
+    }
+
+    //This line will never execute
+    //if the array contains a single element.
+    return -1;
